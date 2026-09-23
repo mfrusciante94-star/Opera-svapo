@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Miei Contatti NFC</title>
+    <style>
+        /* ==========================================================================
+           CONFIGURAZIONE RAPIDA (Modifica qui i tuoi colori e lo sfondo)
+           ========================================================================== */
+        :root {
+            /* Sfondo di apertura: puoi usare un gradiente, un colore fisso (es: #222222) o un'immagine url('link') */
+            --background-style: linear-gradient(https://www.facebook.com/p/Opera-Svapo-61559297753584/);
+            
+            /* Colori del box e dei testi */
+            --card-background: rgba(255, 255, 255, 0.95);
+            --text-color: #333333;
+            
+            /* Colori dei pulsanti */
+            --whatsapp-color: #25D366;
+            --instagram-color: #E1306C;
+            --maps-color: #4285F4;
+        }
+
+        /* ==========================================================================
+           STILI STRUTTURALI (Non toccare se non vuoi modificare il layout)
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: var(--background-style);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: var(--card-background);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .links-flex {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            color: white;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-color);
+        }
+
+        .btn-instagram {
+            background-color: var(--instagram-color);
+        }
+
+        .btn-maps {
+            background-color: var(--maps-color);
+        }
+
+        .btn svg {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Icona profilo o Logo opzionale -->
+        <div class="profile-img">👋</div>
+        
+        <h1>Benvenuto!</h1>
+        <p>Seleziona un'opzione per metterti in contatto con noi o trovarci:</p>
+
+        <div class="links-flex">
+            <!-- ==========================================================================
+                 LINK DA PERSONALIZZARE
+                 ========================================================================== -->
+            
+            <!-- CONTATTO WHATSAPP -->
+            <!-- Cambia il numero dopo wa.me/ (es: 393331234567) e il testo dopo ?text= -->
+            <a href="https://wa.me/393514248146?text=Ciao!%20Ho%20scansionato%20il%20tag%20NFC%20e%20vorrei%20maggiori%20informazioni." class="btn btn-whatsapp" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.4.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.503-5.729-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.413 9.863-9.847.001-2.63-1.019-5.101-2.871-6.956C16.611 1.947 14.14 .92 11.513.92c-5.442 0-9.866 4.415-9.869 9.85-.001 1.77.46 3.5 1.335 5.03l-.408 1.491.432-.415zm13.111-7.142c-.287-.144-1.696-.837-1.958-.933-.263-.095-.454-.144-.645.144-.191.287-.738.933-.905 1.124-.167.191-.335.215-.622.072-.287-.144-1.215-.447-2.316-1.429-.856-.764-1.433-1.708-1.6-1.995-.168-.287-.018-.442.125-.583.129-.127.287-.335.43-.502.144-.167.191-.287.287-.478.095-.191.048-.359-.024-.502-.072-.143-.645-1.554-.883-2.128-.232-.559-.469-.483-.645-.492-.167-.008-.359-.01-.55-.01-.191 0-.501.072-.764.359-.263.287-1.004.98-1.004 2.39 0 1.41 1.028 2.774 1.171 2.965.143.191 2.023 3.088 4.901 4.331.684.296 1.218.473 1.635.605.687.218 1.312.187 1.806.114.55-.082 1.696-.693 1.935-1.365.239-.672.239-1.246.167-1.365-.072-.119-.263-.191-.55-.335z"/></svg>
+                WhatsApp
+            </a>
+
+            <!-- INSTAGRAM -->
+            <!-- Sostituisci IL_TUO_USER_INSTAGRAM con il tuo vero username -->
+            <a href="https://instagram.com/operasvapo" class="btn btn-instagram" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                Instagram
+            </a>
+
+            <!-- DOVE TROVARCI (GEOLOCALIZZAZIONE) -->
+            <!-- Inserisci qui l'indirizzo della tua attività o le coordinate (Latitudine,Longitudine) al posto di "Roma" -->
+            <!-- Esempio con indirizzo: https://www.google.com/maps/search/?api=1&query=Via+Roma+1,+Milano -->
+            <!-- Esempio con coordinate: https://www.google.com/maps/search/?api=1&query=41.8902,12.4922 -->
+            <a href="https://www.google.com/maps/dir/Negozio+di+Sigarette+Elettroniche+-+Opera+Svapo,+Via+Nazionale,+93,+84015+Nocera+Superiore+SA/Negozio+di+Sigarette+Elettroniche+-+Opera+Svapo,+Via+Nazionale,+93,+84015+Nocera+Superiore+SA/@40.7313557,14.6862997,18.75z/data=!4m13!4m12!1m5!1m1!1s0x133bc1ab20940ea7:0x4cccdbd11d41db96!2m2!1d14.6872205!2d40.7313691!1m5!1m1!1s0x133bc1ab20940ea7:0x4cccdbd11d41db96!2m2!1d14.6872205!2d40.7313691?entry=ttu&g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D" class="btn btn-maps" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Dove Trovarci
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
